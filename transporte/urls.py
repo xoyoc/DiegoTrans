@@ -17,6 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from .views import home
+from registros.views import CrearRegistrosView, ListaRegistrosView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',home),
+    path('registros/crear', CrearRegistrosView.as_view(), name='crear_registro'),
+    path('registros/lista', ListaRegistrosView.as_view(), name='lista_registros'),
 ]
