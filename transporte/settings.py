@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'operadores',
     'unidades',
     'registros',
+    'reportes',
 ]
 
 MIDDLEWARE = [

@@ -6,6 +6,22 @@
         <form action="" method="post" class="col-span-8 col-start-3">
             {% csrf_token %}
             {{ form|crispy }}
+            <div class="mt-4">
+                <button
+                  type="submit"
+                  class="inline-block w-full rounded-lg bg-teal-600 px-5 py-3 font-medium text-white sm:w-auto hover:bg-teal-700"
+                >
+                  Agregar
+                </button>
+                <a href="{% url "lista_registros" %}">
+                  <button
+                    type="button"
+                    class="inline-block w-full rounded-lg bg-red-600 px-5 py-3 font-medium text-white sm:w-auto hover:bg-red-700"
+                  >
+                    Cancelar
+                  </button>
+                </a>
+            </div>
         </form>
     </div>
 {% endblock content %}

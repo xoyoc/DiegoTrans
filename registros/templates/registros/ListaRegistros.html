@@ -2,4 +2,41 @@
 
 {% block content %}
 
+<div class="overflow-x-auto">
+    <table class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+      <thead class="ltr:text-left rtl:text-right">
+        <tr>
+          <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Fecha C</th>
+          <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Cliente</th>
+          <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Destinatario</th>
+          <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Unidad</th>
+          <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Operador</th>
+          <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">IMP/EXP</th>
+          <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Orden</th>
+          <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Contenedor</th>
+          <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">CPC</th>
+          <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Factura</th>
+        </tr>
+      </thead>
+  
+      <tbody class="divide-y divide-gray-200">
+        {% for regst in list_registros %}
+            <tr>
+                <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">{{regst.date}}</td>
+                <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{regst.clienteid}}</td>
+                <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{regst.destinatariosid}}</td>
+                <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{regst.unidadid}}</td>
+                <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{regst.operadorid}}</td>
+                <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{regst.imp_exp}}</td>
+                <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{regst.order_w}}</td>
+                <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{regst.container}}</td>
+                <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{regst.cpc}}</td>
+                <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{regst.factura}}</td>
+            </tr>
+        {% endfor %}
+
+      </tbody>
+    </table>
+  </div>
+
 {% endblock content %}
