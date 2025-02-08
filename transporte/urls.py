@@ -24,10 +24,10 @@ from registros.views import CrearRegistrosView, ListaRegistrosView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home),
-    path('esta',estadisticas),
-    path('inicio-reporte',crear_ano_semana, name='inicio_ano'),
-    path('semanas', semanas, name='semanas'),
-    path('semanas-false', semanas_false, name='semanas_falsa'),
+    path('esta/',estadisticas),
+    path('inicio-reporte/',crear_ano_semana, name='inicio_ano'),
+    path('semanas/', semanas, name='semanas'),
+    path('semanas-false/', semanas_false, name='semanas_falsa'),
     path('registros/crear', CrearRegistrosView.as_view(), name='crear_registro'),
     path('registros/lista', ListaRegistrosView.as_view(), name='lista_registros'),
 ]

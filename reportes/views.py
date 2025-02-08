@@ -1,5 +1,6 @@
 from django.shortcuts import render
 import datetime
+import csv
 
 from transporte.semanas import obtener_semanas_del_año
 from .models import ReporteModel
@@ -21,6 +22,7 @@ def crear_ano_semana(request):
 def estadisticas(request):
     semanas=[]
     totales=[]
+    dict = {}
     reportes = ReporteModel.objects.all()
     for reporte in reportes:
         semanas.append(reporte.numero_semana)
@@ -29,6 +31,27 @@ def estadisticas(request):
         'semanas': semanas,
         'totales':totales,
     }
+
+    for semanas, totales in zip(semanas, totales):
+        keys = str(semanas)
+        dict.setdefault(keys, totales)
+    
+    dict = [
+                {'Semana': 1,'Totales':0.00,}, 
+                {'Semana': 2,'Totales':0.00,}, 
+                {'Semana': 3,'Totales':0.00,}, 
+                {'Semana': 4,'Totales':0.00,}, 
+                {'Semana': 5,'Totales':146180.08,}, 
+                {'Semana': 6,'Totales':0.00,}
+            ]
+    
+    with open('estadisticas.csv', mode='w') as file:
+        writer = csv.DictWriter(file, fieldnames=['Semana', 'Totales'])
+        writer.writeheader()
+        for row in dict:
+            writer.writerow(row)
+    print(dict)
+    print(type(dict))
     return render(request, 'base.html', context)
 
 def semanas(request):
